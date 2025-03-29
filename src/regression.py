@@ -31,7 +31,7 @@ def regression(nome="../data/atividade_enzimatica.csv"):
     X_aug = np.hstack((np.ones((x.shape[0], 1)), x))
     beta_mqo = np.linalg.pinv(X_aug.T @ X_aug) @ (X_aug.T @ y)
 
-    #modelo de MQO Regularizado
+    ## 4 modelo de MQO Regularizado
     lambdas = [0, 0.25, 0.5, 0.75, 1]
     beta_regs = {}
     for lamb in lambdas:
@@ -54,7 +54,13 @@ def regression(nome="../data/atividade_enzimatica.csv"):
     for lamb in lambdas:
         print(f" λ = {lamb} -> beta: {beta_regs[lamb].ravel()}")    
 
+
+    
+
+
     plt.show()
+
+
 
 if __name__ == "__main__":
     regression()
